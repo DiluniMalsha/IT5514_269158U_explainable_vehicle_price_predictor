@@ -1,0 +1,69 @@
+index: 9949 ads | already fetched: 3999 | to fetch now: 5950
+estimated wall time: ~26 min at delay=0.8s x 3 workers
+  ! nissan-sunny-b11-1984-for-sale-kurunegala-5: FetchError giving up on https://ikman.lk/en/ad/nissan-sunny-b11-1984-for-sale-kurunegala-5: HTTP 410 for https://ikman.lk/en/ad/nissan-sunny-b11-1984-for-sale-kurunegala-5
+    100 processed  ok=99 gone=0 failed=1
+    200 processed  ok=199 gone=0 failed=1
+    300 processed  ok=299 gone=0 failed=1
+  ! suzuki-wagon-r-fx-safety-2024-for-sale-colombo-411: FetchError giving up on https://ikman.lk/en/ad/suzuki-wagon-r-fx-safety-2024-for-sale-colombo-411: HTTP 410 for https://ikman.lk/en/ad/suzuki-wagon-r-fx-safety-2024-for-sale-colombo-411
+    400 processed  ok=398 gone=0 failed=2
+    500 processed  ok=498 gone=0 failed=2
+  ! honda-insight-ze3-2012-for-sale-kandy-1: FetchError giving up on https://ikman.lk/en/ad/honda-insight-ze3-2012-for-sale-kandy-1: HTTP 410 for https://ikman.lk/en/ad/honda-insight-ze3-2012-for-sale-kandy-1
+    600 processed  ok=597 gone=0 failed=3
+    700 processed  ok=697 gone=0 failed=3
+    800 processed  ok=797 gone=0 failed=3
+  ! toyota-premio-2018-for-sale-colombo-481: FetchError giving up on https://ikman.lk/en/ad/toyota-premio-2018-for-sale-colombo-481: HTTP 410 for https://ikman.lk/en/ad/toyota-premio-2018-for-sale-colombo-481
+  ! toyota-aqua-limited-2013-for-sale-gampaha: FetchError giving up on https://ikman.lk/en/ad/toyota-aqua-limited-2013-for-sale-gampaha: HTTP 410 for https://ikman.lk/en/ad/toyota-aqua-limited-2013-for-sale-gampaha
+    900 processed  ok=895 gone=0 failed=5
+   1000 processed  ok=995 gone=0 failed=5
+   1100 processed  ok=1095 gone=0 failed=5
+   1200 processed  ok=1195 gone=0 failed=5
+   1300 processed  ok=1295 gone=0 failed=5
+   1400 processed  ok=1395 gone=0 failed=5
+   1500 processed  ok=1495 gone=0 failed=5
+   1600 processed  ok=1595 gone=0 failed=5
+   1700 processed  ok=1694 gone=0 failed=6
+   1800 processed  ok=1794 gone=0 failed=6
+   1900 processed  ok=1894 gone=0 failed=6
+   2000 processed  ok=1993 gone=0 failed=7
+   2100 processed  ok=2092 gone=0 failed=8
+   2200 processed  ok=2192 gone=0 failed=8
+   2300 processed  ok=2292 gone=0 failed=8
+   2400 processed  ok=2392 gone=0 failed=8
+   2500 processed  ok=2492 gone=0 failed=8
+   2600 processed  ok=2592 gone=0 failed=8
+   2700 processed  ok=2692 gone=0 failed=8
+   2800 processed  ok=2792 gone=0 failed=8
+   2900 processed  ok=2892 gone=0 failed=8
+   3000 processed  ok=2991 gone=0 failed=9
+   3100 processed  ok=3091 gone=0 failed=9
+   3200 processed  ok=3191 gone=0 failed=9
+   3300 processed  ok=3291 gone=0 failed=9
+   3400 processed  ok=3391 gone=0 failed=9
+   3500 processed  ok=3489 gone=0 failed=11
+   3600 processed  ok=3589 gone=0 failed=11
+   3700 processed  ok=3686 gone=0 failed=14
+   3800 processed  ok=3785 gone=0 failed=15
+   3900 processed  ok=3885 gone=0 failed=15
+   4000 processed  ok=3983 gone=0 failed=17
+   4100 processed  ok=4082 gone=0 failed=18
+   4200 processed  ok=4181 gone=0 failed=19
+   4300 processed  ok=4280 gone=0 failed=20
+   4400 processed  ok=4379 gone=0 failed=21
+   4500 processed  ok=4479 gone=0 failed=21
+   4600 processed  ok=4579 gone=0 failed=21
+   4700 processed  ok=4679 gone=0 failed=21
+   4800 processed  ok=4779 gone=0 failed=21
+   4900 processed  ok=4879 gone=0 failed=21
+   5000 processed  ok=4977 gone=0 failed=23
+   5100 processed  ok=5074 gone=0 failed=26
+   5200 processed  ok=5172 gone=0 failed=28
+   5300 processed  ok=5272 gone=0 failed=28
+   5400 processed  ok=5372 gone=0 failed=28
+   5500 processed  ok=5472 gone=0 failed=28
+   5600 processed  ok=5572 gone=0 failed=28
+   5700 processed  ok=5672 gone=0 failed=28
+   5800 processed  ok=5772 gone=0 failed=28
+   5900 processed  ok=5871 gone=0 failed=29
+
+done: ok=5920 gone=1 failed=29
+written to F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\data\raw\details.jsonl

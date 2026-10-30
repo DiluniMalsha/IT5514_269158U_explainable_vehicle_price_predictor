@@ -1,0 +1,32 @@
+# The reported results were produced with. Python 3.9.5.
+#
+#     python -m pip install -r requirements.txt
+#
+# numpy is pinned below 2.0 deliberately. A bare `pip install interpret` pulls
+# numpy 2.0.2, which breaks the scipy build installed here because that wheel was
+# compiled against numpy 1.x; the error surfaces much later, as an import failure
+# inside scipy. Pinning it here makes pip resolve the whole set at once.
+numpy==1.26.4
+scipy==1.13.0
+pandas==2.2.2
+scikit-learn==1.4.2
+joblib==1.4.2
+
+# interpret-core, not the full `interpret` meta-package. The meta-package adds
+# Flask, Dash, gevent and plotly purely for the interactive dashboard, which this
+# project does not use: every figure is drawn with matplotlib so that the app and
+# the report share one chart style.
+interpret-core==0.7.3
+
+# Explainability comparison in Section 4.7 (code/explain/shap_comparison.py).
+shap==0.49.1
+
+# Figures.
+matplotlib==3.9.2
+
+# Data collection (code/scrape/). Not needed to reproduce the results from the
+# raw files already in data/raw/.
+requests==2.31.0
+
+# Front-end (app/app.py).
+streamlit==1.50.0

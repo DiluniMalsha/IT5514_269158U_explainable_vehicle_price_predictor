@@ -1,0 +1,47 @@
+F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\code\clean_data.py:192: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  df['trim_performance'] = ed.str.contains(
+F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\code\clean_data.py:197: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  df['trim_premium'] = ed.str.contains(
+F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\code\clean_data.py:202: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+  df['trim_equipment'] = ed.str.contains(
+F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\code\clean_data.py:219: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df[dest] = df[src].fillna(False).astype(int)
+
+CLEANING REPORT
+===================================================================
+rows read from raw scrape                                   9,919
+dropped: duplicate ad id                                        0
+dropped: no parseable price                                     0
+dropped: price outside 150,000-500,000,000                     21
+dropped: year outside 1950-2027                                 2
+dropped: mileage above 1,000,000 km                             0
+dropped: engine above 8,000 cc                                  3
+blanked: engine_cc on electric vehicles                       134
+blanked: engine_cc below 500 cc                                41
+blanked: mileage exactly 1,000,000 km                           4
+dropped: duplicate feature vector                             919
+grouped: make_model levels with <10 rows (438 -> Other)     1,218
+grouped: edition levels with <20 rows (3291 -> Other)       5,157
+grouped: town levels with <20 rows (160 -> Other)             997
+grouped: brand levels with <10 rows (36 -> Other)             127
+grouped: district levels with <10 rows (3 -> Other)            11
+-------------------------------------------------------------------
+rows retained                                               8,974
+retention                                                   90.5%
+
+MISSING VALUES (retained rows)
+  views                 224  (2.5%)
+  engine_cc             160  (1.8%)
+  mileage_km              4  (0.0%)
+
+TARGET (price, Rs)
+count          8,974
+mean      16,252,626
+std       25,166,625
+min          150,000
+25%        6,650,000
+50%        9,500,000
+75%       15,300,000
+max      499,000,000
+
+written to F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\data\processed\vehicles.csv

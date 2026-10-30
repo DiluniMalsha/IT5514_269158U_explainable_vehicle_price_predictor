@@ -1,0 +1,44 @@
+tuning on the grouped split (train 6,217 | val 1,369)
+stage 1 skipped - interactions fixed at 15; the search it came from is in data/processed/ebm_tuning.csv
+
+stage 2 skipped - learning_rate fixed at 0.06; the search it came from is in data/processed/ebm_tuning.csv
+
+chosen: interactions=15, learning_rate=0.06
+C:\Users\Diluni Malsha Peiris\AppData\Local\Programs\Python\Python39\lib\site-packages\interpret\glassbox\_ebm\_ebm.py:872: UserWarning: Missing values detected. Our visualizations do not currently display missing values. To retain the glassbox nature of the model you need to either set the missing values to an extreme value like -1000 that will be visible on the graphs, or manually examine the missing value score in ebm.term_scores_[term_index][0]
+  warn(
+
+-- EBM on the grouped split (299.5s, 35 terms) --
+  train  n= 6217  R2 0.9711  RMSE 0.0709  med %err   6.6  p90 %err  23.2
+  val    n= 1369  R2 0.9459  RMSE 0.0922  med %err   8.8  p90 %err  28.4
+
+  top terms by importance:
+    age_years                                0.1950
+    engine_cc                                0.1274
+    brand_grp                                0.0709
+    make_model_grp                           0.0571
+    mileage_km                               0.0314
+    transmission                             0.0250
+    body                                     0.0243
+    mileage_km & engine_cc                   0.0162
+    age_years & engine_cc                    0.0153
+    fuel_type                                0.0152
+    make_model_grp & engine_cc               0.0140
+    brand_grp & age_years                    0.0118
+
+  validation error by price band:
+    < Rs 2M    n=  56  median %err  25.0
+    Rs 2-5M    n= 146  median %err  12.3
+    Rs 5-10M   n= 533  median %err   7.9
+    Rs 10-20M  n= 413  median %err   8.0
+    Rs 20-50M  n= 142  median %err  10.0
+    > Rs 50M   n=  79  median %err  12.1
+C:\Users\Diluni Malsha Peiris\AppData\Local\Programs\Python\Python39\lib\site-packages\interpret\glassbox\_ebm\_ebm.py:872: UserWarning: Missing values detected. Our visualizations do not currently display missing values. To retain the glassbox nature of the model you need to either set the missing values to an extreme value like -1000 that will be visible on the graphs, or manually examine the missing value score in ebm.term_scores_[term_index][0]
+  warn(
+
+-- EBM on the random split (434.2s, 35 terms) --
+  train  n= 6395  R2 0.9723  RMSE 0.0682  med %err   6.5  p90 %err  21.9
+  val    n= 1279  R2 0.9487  RMSE 0.0907  med %err   7.4  p90 %err  28.5
+
+scores -> F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\data\processed\ebm_scores.csv
+models -> F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\models
+test set untouched - pass --test when the model is settled

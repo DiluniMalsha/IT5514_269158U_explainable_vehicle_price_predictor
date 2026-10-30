@@ -1,0 +1,45 @@
+index: 9949 ads | already fetched: 0 | to fetch now: 4000
+estimated wall time: ~18 min at delay=0.8s x 3 workers
+    100 processed  ok=99 gone=1 failed=0
+    200 processed  ok=199 gone=1 failed=0
+    300 processed  ok=299 gone=1 failed=0
+    400 processed  ok=399 gone=1 failed=0
+    500 processed  ok=499 gone=1 failed=0
+    600 processed  ok=599 gone=1 failed=0
+    700 processed  ok=699 gone=1 failed=0
+    800 processed  ok=799 gone=1 failed=0
+    900 processed  ok=899 gone=1 failed=0
+   1000 processed  ok=999 gone=1 failed=0
+   1100 processed  ok=1099 gone=1 failed=0
+   1200 processed  ok=1199 gone=1 failed=0
+   1300 processed  ok=1299 gone=1 failed=0
+   1400 processed  ok=1399 gone=1 failed=0
+   1500 processed  ok=1499 gone=1 failed=0
+   1600 processed  ok=1599 gone=1 failed=0
+   1700 processed  ok=1699 gone=1 failed=0
+   1800 processed  ok=1799 gone=1 failed=0
+   1900 processed  ok=1899 gone=1 failed=0
+   2000 processed  ok=1999 gone=1 failed=0
+   2100 processed  ok=2099 gone=1 failed=0
+   2200 processed  ok=2199 gone=1 failed=0
+   2300 processed  ok=2299 gone=1 failed=0
+   2400 processed  ok=2399 gone=1 failed=0
+   2500 processed  ok=2499 gone=1 failed=0
+   2600 processed  ok=2599 gone=1 failed=0
+   2700 processed  ok=2699 gone=1 failed=0
+   2800 processed  ok=2799 gone=1 failed=0
+   2900 processed  ok=2899 gone=1 failed=0
+   3000 processed  ok=2999 gone=1 failed=0
+   3100 processed  ok=3099 gone=1 failed=0
+   3200 processed  ok=3199 gone=1 failed=0
+   3300 processed  ok=3299 gone=1 failed=0
+   3400 processed  ok=3399 gone=1 failed=0
+   3500 processed  ok=3499 gone=1 failed=0
+   3600 processed  ok=3599 gone=1 failed=0
+   3700 processed  ok=3699 gone=1 failed=0
+   3800 processed  ok=3799 gone=1 failed=0
+   3900 processed  ok=3899 gone=1 failed=0
+   4000 processed  ok=3999 gone=1 failed=0
+
+done: ok=3999 gone=1 failed=0
+written to F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\data\raw\details.jsonl

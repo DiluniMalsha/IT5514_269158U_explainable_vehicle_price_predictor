@@ -1,0 +1,57 @@
+C:\Users\Diluni Malsha Peiris\AppData\Local\Programs\Python\Python39\lib\site-packages\interpret\glassbox\_ebm\_ebm.py:872: UserWarning: Missing values detected. Our visualizations do not currently display missing values. To retain the glassbox nature of the model you need to either set the missing values to an extreme value like -1000 that will be visible on the graphs, or manually examine the missing value score in ebm.term_scores_[term_index][0]
+  warn(
+C:\Users\Diluni Malsha Peiris\AppData\Local\Programs\Python\Python39\lib\site-packages\interpret\glassbox\_ebm\_ebm.py:872: UserWarning: Missing values detected. Our visualizations do not currently display missing values. To retain the glassbox nature of the model you need to either set the missing values to an extreme value like -1000 that will be visible on the graphs, or manually examine the missing value score in ebm.term_scores_[term_index][0]
+  warn(
+C:\Users\Diluni Malsha Peiris\AppData\Local\Programs\Python\Python39\lib\site-packages\interpret\glassbox\_ebm\_ebm.py:872: UserWarning: Missing values detected. Our visualizations do not currently display missing values. To retain the glassbox nature of the model you need to either set the missing values to an extreme value like -1000 that will be visible on the graphs, or manually examine the missing value score in ebm.term_scores_[term_index][0]
+  warn(
+tuning on the grouped split (train 6,217 | val 1,369)
+stage 1: how many pairwise interaction terms are worth their opacity?
+
+  interactions=0      18.1s  terms   20  val R2 0.9261  med %err  11.0
+  interactions=5      31.8s  terms   25  val R2 0.9353  med %err   9.8
+  interactions=15    355.1s  terms   35  val R2 0.9455  med %err   8.8
+  interactions=40    333.0s  terms   60  val R2 0.9478  med %err   8.7
+  interactions=100   307.0s  terms  120  val R2 0.9505  med %err   8.6
+
+stage 2: learning rate at interactions=100
+
+  learning_rate=0.008  1058.5s  val R2 0.9491  med %err   8.5
+  learning_rate=0.015   614.0s  val R2 0.9497  med %err   8.5
+  learning_rate=0.03    397.1s  val R2 0.9502  med %err   8.6
+  learning_rate=0.06    234.7s  val R2 0.9506  med %err   8.7
+
+chosen: interactions=100, learning_rate=0.06
+
+-- EBM on the grouped split (240.1s, 120 terms) --
+  train  n= 6217  R2 0.9741  RMSE 0.0672  med %err   6.2  p90 %err  21.7
+  val    n= 1369  R2 0.9506  RMSE 0.0881  med %err   8.7  p90 %err  28.8
+
+  top terms by importance:
+    age_years                                0.1952
+    engine_cc                                0.1273
+    brand_grp                                0.0711
+    make_model_grp                           0.0571
+    mileage_km                               0.0313
+    transmission                             0.0250
+    body                                     0.0242
+    fuel_type                                0.0151
+    age_years & engine_cc                    0.0119
+    mileage_km & engine_cc                   0.0119
+    make_model_grp & engine_cc               0.0115
+    brand_grp & age_years                    0.0075
+
+  validation error by price band:
+    < Rs 2M    n=  56  median %err  24.5
+    Rs 2-5M    n= 146  median %err  12.3
+    Rs 5-10M   n= 533  median %err   6.6
+    Rs 10-20M  n= 413  median %err   8.2
+    Rs 20-50M  n= 142  median %err  10.7
+    > Rs 50M   n=  79  median %err  15.2
+
+-- EBM on the random split (270.8s, 120 terms) --
+  train  n= 6395  R2 0.9776  RMSE 0.0614  med %err   5.8  p90 %err  19.5
+  val    n= 1279  R2 0.9515  RMSE 0.0881  med %err   7.1  p90 %err  28.5
+
+scores -> F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\data\processed\ebm_scores.csv
+models -> F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\models
+test set untouched - pass --test when the model is settled

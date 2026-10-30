@@ -1,0 +1,49 @@
+index already holds 78 unique ads
+site reports 10674 ads, 26 per page -> walking 412 pages
+  page    1/412  + 0 new  unique so far 78
+  page    2/412  + 0 new  unique so far 78
+  page    3/412  + 0 new  unique so far 78
+  page   10/412  +24 new  unique so far 257
+  page   20/412  +25 new  unique so far 509
+  page   30/412  +25 new  unique so far 709
+  page   40/412  +25 new  unique so far 959
+  page   50/412  +26 new  unique so far 1213
+  page   60/412  +25 new  unique so far 1465
+  page   70/412  +26 new  unique so far 1717
+  page   80/412  +25 new  unique so far 1967
+  page   90/412  +25 new  unique so far 2216
+  page  100/412  +25 new  unique so far 2466
+  page  110/412  +25 new  unique so far 2716
+  page  120/412  +25 new  unique so far 2967
+  page  130/412  +25 new  unique so far 3217
+  page  140/412  +25 new  unique so far 3465
+  page  150/412  +25 new  unique so far 3715
+  page  160/412  +25 new  unique so far 3964
+  page  170/412  +25 new  unique so far 4211
+  page  180/412  +24 new  unique so far 4459
+  page  190/412  +23 new  unique so far 4706
+  page  200/412  +25 new  unique so far 4955
+  page  210/412  +25 new  unique so far 5204
+  page  220/412  +25 new  unique so far 5453
+  page  230/412  +25 new  unique so far 5701
+  page  240/412  +25 new  unique so far 5951
+  page  250/412  +25 new  unique so far 6200
+  page  260/412  +25 new  unique so far 6449
+  page  270/412  +25 new  unique so far 6699
+  page  280/412  +25 new  unique so far 6949
+  page  290/412  +25 new  unique so far 7198
+  page  300/412  +25 new  unique so far 7448
+  page  310/412  +25 new  unique so far 7698
+  page  320/412  +25 new  unique so far 7948
+  page  330/412  +25 new  unique so far 8197
+  page  340/412  +25 new  unique so far 8446
+  page  350/412  +25 new  unique so far 8696
+  page  360/412  +25 new  unique so far 8944
+  page  370/412  +25 new  unique so far 9194
+  page  380/412  +24 new  unique so far 9443
+  page  390/412  +25 new  unique so far 9693
+  page  400/412  +25 new  unique so far 9942
+  page  410/412  + 0 new  unique so far 9949
+
+done: 9871 new ads added, 9949 unique in total
+written to F:\UOM\MSc\Semester 02\IT5514 - Applied Machine Learning\Assignments\Final Assignment\data\raw\index.jsonl

@@ -107,7 +107,31 @@ def load():
         named = [m for m in counts.index if m not in ('Other', 'Unknown')]
         collapsed = [m for m in counts.index if m in ('Other', 'Unknown')]
         brand_models[brand] = named + collapsed
-    return model, data, levels, brand_models
+
+    # Which model years each model actually appears in. The year input used to
+    # default to a fixed 2018 regardless of the model chosen, and because the
+    # model defaults to the brand's most listed one, the app opened on a 2018
+    # Toyota Raize - a vehicle that does not exist, since the Raize launched in
+    # late 2019. Two defaults picked independently produced an impossible car.
+    years = {}
+    for mm, group in data.groupby('make_model_grp')['model_year']:
+        counts = group.dropna().astype(int).value_counts()
+        if counts.empty:
+            continue
+        # A single listing at some year is usually a typing slip rather than
+        # evidence the model was sold then, so the quoted range ignores those.
+        solid = sorted(y for y, n in counts.items() if n >= 2)
+        years[mm] = {
+            # The most listed year, not the median: a median can land in a gap
+            # between two clusters, which would open the app on a year the model
+            # was never sold in and fire the warning below against its own
+            # default. The mode is always a year that exists.
+            'default': int(counts.idxmax()),
+            'present': set(counts.index),
+            'low': solid[0] if solid else int(counts.index.min()),
+            'high': solid[-1] if solid else int(counts.index.max()),
+        }
+    return model, data, levels, brand_models, years
 
 
 def band_for(price: float):
@@ -140,7 +164,7 @@ def pretty_term(name: str, values: dict) -> str:
 
 # ----------------------------------------------------------------------- input
 
-model, data, levels, brand_models = load()
+model, data, levels, brand_models, model_years = load()
 base_log = float(np.ravel(model.intercept_)[0])
 base_price = 10 ** base_log
 
@@ -165,11 +189,30 @@ make_model = sb.selectbox('Model', options,
                           help='"Other" is the level the model fits for make/model '
                                'combinations too rare to earn their own term.')
 
-model_year = sb.slider('Model year', 1950, SNAPSHOT_YEAR + 1, 2018)
+# The default year follows the model, so changing the model cannot leave a year
+# behind that the model was never sold in. Keying the widget on the model name
+# is what makes Streamlit re-initialise it: without the key it would keep
+# whatever value it already held.
+seen = model_years.get(make_model)
+model_year = sb.slider('Model year', 1950, SNAPSHOT_YEAR + 1,
+                       seen['default'] if seen else 2018,
+                       key=f'model_year::{make_model}')
 age_years = max(0, SNAPSHOT_YEAR - model_year)
 
+# Condition and odometer follow the model and year for the same reason the year
+# follows the model: three defaults chosen independently describe a vehicle
+# nobody owns. A 2026 model with a fixed 85,000 km on it is the obvious case.
+like_this = data[(data['make_model_grp'] == make_model)
+                 & data['model_year'].between(model_year - 2, model_year + 2)]
+typical_condition = (like_this['condition'].mode().iloc[0]
+                     if len(like_this) >= 3 else 'Used')
+typical_mileage = (int(round(like_this['mileage_km'].median() / 1000) * 1000)
+                   if len(like_this) >= 3 and like_this['mileage_km'].notna().any()
+                   else 85_000)
+
 condition = sb.selectbox('Condition', levels['condition'],
-                         index=levels['condition'].index('Used'))
+                         index=levels['condition'].index(typical_condition),
+                         key=f'condition::{make_model}::{model_year}')
 transmission = sb.selectbox('Transmission', levels['transmission'])
 body = sb.selectbox('Body', levels['body'],
                     index=levels['body'].index('Hatchback')
@@ -179,7 +222,8 @@ fuel_type = sb.selectbox('Fuel type', levels['fuel_type'],
                          if 'Petrol' in levels['fuel_type'] else 0)
 
 mileage_km = sb.number_input('Odometer (km)', min_value=0, max_value=755_000,
-                             value=85_000, step=1_000)
+                             value=typical_mileage, step=1_000,
+                             key=f'mileage::{make_model}::{model_year}')
 
 # An electric vehicle has no engine capacity to state. The cleaner blanked the
 # field for those rows rather than imputing a number, and the model learned a
@@ -283,9 +327,13 @@ with left:
     if peer_median is not None:
         st.write(
             f'The same-model median is drawn from **{len(peers)} listings** of '
-            f'{make_model} within ±2 model years. That lookup reaches R² 0.537 '
-            f'on the test set, against this model’s 0.9386, so treat it as '
-            f'a sanity check rather than a rival estimate.'
+            f'{make_model} within ±2 model years. Matching on model alone '
+            f'reaches R² 0.537 on the test set against this model’s 0.9386; '
+            f'matching the year as well closes most of that gap on the typical '
+            f'vehicle, but still misses by more than half on roughly one '
+            f'listing in ten, against one in thirty here, because a lookup has '
+            f'nothing to fall back on where the same model and year are thinly '
+            f'listed. Treat it as a sanity check rather than a rival estimate.'
         )
     else:
         st.write(
@@ -295,6 +343,16 @@ with left:
         )
 
     warnings = []
+    # The combination, not just each field on its own. A model that was never
+    # sold in the chosen year is the one input that looks completely ordinary
+    # and is in fact impossible.
+    if seen and model_year not in seen['present']:
+        warnings.append(
+            f'The dataset holds no {make_model} from {model_year}. Listings of '
+            f'this model run from {seen["low"]} to {seen["high"]}, so this '
+            f'estimate rests on the general age curve rather than on evidence '
+            f'about this model at this age.'
+        )
     if 2020 <= model_year <= 2022:
         warnings.append(
             'Sri Lanka suspended vehicle imports from 2020, so model years '
